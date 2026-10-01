@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignSphere — Lomba Web Design</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            bg: '#000000',
+                            card: '#161617',
+                            border: '#38383a',
+                            text: '#f5f5f7',
+                            muted: '#86868b',
+                            accent: '#2997ff',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+        
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card {
+            background: rgba(22, 22, 23, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            background: rgba(32, 32, 35, 0.85);
+            border-color: rgba(41, 151, 255, 0.4);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(41, 151, 255, 0.2);
+        }
+
+        /* Spotlight Hover Effect inside Cards */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(41, 151, 255, 0.08), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.28; }
+        }
+
+        .animate-glow {
+            animation: floatGlow 7s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes successPop {
+            0% { transform: scale(0.7); opacity: 0; }
+            70% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-success-card {
+            animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes checkPulse {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.25); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-check-icon {
+            animation: checkPulse 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s forwards;
+        }
+    </style>
+</head>
+<body class="bg-apple-bg text-apple-text antialiased selection:bg-apple-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-semibold text-white tracking-tight text-lg hover:text-apple-accent transition-colors">DesignSphere</a>
+            <div class="flex items-center space-x-6 text-sm text-apple-muted">
+                <a href="#about" class="hover:text-white transition-colors duration-300">Tentang</a>
+                <a href="#hadiah" class="hover:text-white transition-colors duration-300">Hadiah</a>
+                <a href="#daftar" class="bg-white text-black px-4 py-1.5 rounded-full font-medium hover:bg-apple-accent hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm">Daftar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-24 pb-16 px-6 text-center relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-blue-500/20 rounded-full blur-[140px] pointer-events-none animate-glow"></div>
+
+        <div class="max-w-3xl mx-auto relative z-10 animate-on-scroll">
+            <span class="inline-block py-1 px-3.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-apple-muted mb-6 tracking-wide hover:border-apple-accent/50 hover:bg-white/10 transition-all cursor-default">
+                Lomba Web Design Nasional 2026 🚀
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                Desain Web Minimalis. <br><span class="text-gradient">Karya Tanpa Batas.</span>
+            </h1>
+            <p class="text-apple-muted text-base sm:text-lg mb-10 max-w-xl mx-auto font-normal leading-relaxed">
+                Tunjukkan kreativitas web design terbaikmu dengan standar estetika tinggi ala Apple. Sederhana, elegan, dan penuh interaksi super halus.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#daftar" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-apple-accent text-white font-medium hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-blue-500/30">
+                    Daftar Sekarang
+                </a>
+                <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-full glass-card hover:bg-white/10 text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95">
+                    Pelajari Dulu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 border-t border-white/10 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-xl mx-auto mb-16 animate-on-scroll">
+                <h2 class="text-xs uppercase tracking-widest text-apple-accent font-semibold mb-2">Kenapa Ikut?</h2>
+                <h3 class="text-3xl font-bold tracking-tight">Fokus pada Kualitas & Estetika</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 group cursor-pointer animate-on-scroll">
+                    <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-apple-accent mb-4 group-hover:scale-110 group-hover:bg-apple-accent group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-white group-hover:text-apple-accent transition-colors">Clean UI/UX</h4>
+                    <p class="text-apple-muted text-sm leading-relaxed">Desain bersih yang mengutamakan kenyamanan pandangan pengguna.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 group cursor-pointer animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-300">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-white group-hover:text-cyan-400 transition-colors">Smooth Hover</h4>
+                    <p class="text-apple-muted text-sm leading-relaxed">Interaksi tombol dan kartu yang hidup berkat transisi super halus.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 group cursor-pointer animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 group-hover:bg-indigo-400 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-white group-hover:text-indigo-400 transition-colors">Total Hadiah</h4>
+                    <p class="text-apple-muted text-sm leading-relaxed">Menangkan total hadiah puluhan juta rupiah serta sertifikat eksklusif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="hadiah" class="py-24 px-6 border-t border-white/10 bg-black/40 relative">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-xs uppercase tracking-widest text-apple-accent font-semibold mb-2">Apresiasi</h2>
+                <h3 class="text-3xl font-bold tracking-tight mb-12">Hadiah Pemenang</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="glass-card rounded-2xl p-6 group animate-on-scroll">
+                    <div class="text-3xl mb-3 group-hover:scale-125 transition-transform duration-300">🥈</div>
+                    <h4 class="font-semibold text-white mb-1">Juara Kedua</h4>
+                    <div class="text-xl font-bold text-apple-accent">Rp 15 Juta</div>
+                </div>
+                <div class="glass-card rounded-2xl p-8 border-apple-accent/50 bg-white/[0.04] md:-translate-y-4 shadow-xl shadow-blue-500/10 group animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 right-0 bg-apple-accent text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl tracking-wider">UTAMA</div>
+                    <div class="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">🥇</div>
+                    <h4 class="font-semibold text-white mb-1 text-lg">Juara Utama</h4>
+                    <div class="text-2xl font-bold text-apple-accent">Rp 25 Juta</div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 group animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="text-3xl mb-3 group-hover:scale-125 transition-transform duration-300">🥉</div>
+                    <h4 class="font-semibold text-white mb-1">Juara Ketiga</h4>
+                    <div class="text-xl font-bold text-apple-accent">Rp 10 Juta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="daftar" class="py-24 px-6 border-t border-white/10 relative">
+        <div class="max-w-md mx-auto glass-card rounded-3xl p-8 border border-white/10 relative overflow-hidden animate-on-scroll">
+            
+            <!-- Normal Form Container -->
+            <div id="formContainer" class="transition-all duration-500">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-2">Daftar Lomba</h3>
+                    <p class="text-apple-muted text-sm">Amankan posisimu di kompetisi tahun ini.</p>
+                </div>
+
+                <form id="simple-form" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-apple-muted uppercase mb-1 tracking-wider">Nama Lengkap</label>
+                        <input type="text" id="nameInput" required placeholder="cth. Budi Santoso" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-apple-accent focus:ring-1 focus:ring-apple-accent transition-all duration-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-apple-muted uppercase mb-1 tracking-wider">Email</label>
+                        <input type="email" id="emailInput" required placeholder="cth. budi@email.com" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-apple-accent focus:ring-1 focus:ring-apple-accent transition-all duration-300">
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-xl bg-apple-accent text-white font-medium hover:bg-blue-600 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-blue-500/25 text-sm flex items-center justify-center space-x-2">
+                        <span>Kirim Pendaftaran</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Animation State (Hidden by default) -->
+            <div id="successState" class="hidden text-center py-6 animate-success-card">
+                <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-400 text-2xl animate-check-icon shadow-xl shadow-emerald-500/20">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2">Pendaftaran Berhasil! 🎉</h4>
+                <p class="text-apple-muted text-sm mb-6 leading-relaxed">Terima kasih telah mendaftar. Data kamu telah tersimpan dengan aman.</p>
+                <button type="button" id="resetBtn" class="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white text-xs font-medium transition-all duration-300 border border-white/10 hover:scale-105 active:scale-95 shadow-md">
+                    Daftar Lagi
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10 text-center text-xs text-apple-muted">
+        <p>&copy; 2026 DesignSphere. Dibuat dengan gaya minimalis ala Apple.</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Spotlight Hover Effect for Cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Scroll Fade-In Observer
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Form submission & Smooth Success Transition
+        const form = document.getElementById('simple-form');
+        const formContainer = document.getElementById('formContainer');
+        const successState = document.getElementById('successState');
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses...</span>';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                formContainer.style.opacity = '0';
+                formContainer.style.transform = 'translateY(-15px)';
+                formContainer.style.transition = 'all 0.4s ease';
+
+                setTimeout(() => {
+                    formContainer.classList.add('hidden');
+                    successState.classList.remove('hidden');
+                    form.reset();
+                    submitBtn.innerHTML = '<span>Kirim Pendaftaran</span>';
+                    submitBtn.disabled = false;
+                    formContainer.style.opacity = '1';
+                    formContainer.style.transform = 'translateY(0)';
+                }, 400);
+            }, 1000);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            successState.style.opacity = '0';
+            successState.style.transform = 'translateY(15px)';
+            successState.style.transition = 'all 0.4s ease';
+
+            setTimeout(() => {
+                successState.classList.add('hidden');
+                formContainer.classList.remove('hidden');
+                successState.style.opacity = '1';
+                successState.style.transform = 'translateY(0)';
+            }, 400);
+        });
+    </script>
+</body>
+</html>
