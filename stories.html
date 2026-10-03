@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stories | NUSANTARA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a href="index.html" class="brand">NUSANTARA</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="explore.html">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="makers.html">Makers</a>
+          <a href="stories.html" class="active">Stories</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <div class="reveal">
+            <div class="eyebrow">Cerita Nusantara</div>
+            <h1>Stories.</h1>
+            <p>Jelajahi kisah di balik tradisi, karya, dan kehidupan masyarakat dari berbagai daerah Indonesia.</p>
+          </div>
+          <div class="page-hero-visual reveal" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Bercerita_dengan_Wayang.jpg/960px-Bercerita_dengan_Wayang.jpg');"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="stories-heading">
+            <div>
+              <div class="eyebrow">15 budaya · 15 cerita</div>
+              <h2>Kisah dari berbagai penjuru</h2>
+              <p>Cari nama budaya, daerah, atau tema. Arahkan kursor ke kartu atau tekan tombol untuk membaca ceritanya.</p>
+            </div>
+            <label class="story-search">
+              <span>Cari cerita</span>
+              <input id="story-search" type="search" placeholder="Cari budaya atau daerah..." autocomplete="off" />
+              <span aria-hidden="true">⌕</span>
+            </label>
+          </div>
+          <div class="grid-3 story-grid" id="story-grid">
+            <article class="story-card reveal" data-search="songket minangkabau sumatera barat tenun benang tradisional">
+              <div class="image" role="img" aria-label="Kain songket Minangkabau ditenun dengan benang berkilau" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tenunan_songket_khas_Minangkabau.jpg/960px-Tenunan_songket_khas_Minangkabau.jpg');"></div>
+              <div class="content">
+                <div class="tag">Songket Minangkabau · Sumatera Barat</div>
+                <h3>Songket: benang yang merawat tradisi</h3>
+                <p>Songket membawa pengetahuan menenun dan warisan keluarga dari generasi ke generasi.</p>
+                <div class="link-row">
+                  <span>6 menit baca</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Songket Minangkabau" aria-label="Baca cerita Songket Minangkabau" aria-expanded="false" aria-controls="story-songket">+</button>
+              <div class="story-detail" id="story-songket">
+                <span class="tag">Songket · Sumatera Barat</span>
+                <h3>Benang yang menyimpan ingatan</h3>
+                <p>Di ranah Minang, songket ditenun dengan benang emas atau perak yang disisipkan ke dalam kain. Prosesnya menuntut ketelitian dan diwariskan lewat praktik, sementara kainnya hadir dalam upacara adat dan momen penting keluarga.</p>
+                <p>Setiap helai menghubungkan keterampilan penenun, identitas setempat, dan kesempatan ekonomi bagi komunitas yang menjaga tradisi ini tetap hidup.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="wayang kulit jawa dalang bayangan gamelan cerita">
+              <div class="image" role="img" aria-label="Pertunjukan wayang kulit oleh dalang" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Bercerita_dengan_Wayang.jpg/960px-Bercerita_dengan_Wayang.jpg');"></div>
+              <div class="content">
+                <div class="tag">Wayang Kulit · Jawa</div>
+                <h3>Kisah yang hidup di balik kelir</h3>
+                <p>Dalang, wayang, dan gamelan merangkai pertunjukan yang diwariskan lintas generasi.</p>
+                <div class="link-row"><span>5 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Wayang Kulit" aria-label="Baca cerita Wayang Kulit" aria-expanded="false" aria-controls="story-wayang">+</button>
+              <div class="story-detail" id="story-wayang">
+                <span class="tag">Seni pertunjukan · Jawa</span>
+                <h3>Suara, bayangan, dan cerita</h3>
+                <p>Dalam pertunjukan wayang kulit, tokoh dari kulit yang ditatah digerakkan dalang di hadapan kelir. Gamelan, suara, dan cahaya membangun suasana saat kisah dituturkan kepada penonton.</p>
+                <p>Dalang bukan hanya menggerakkan tokoh; ia juga menjaga kemampuan bertutur dan pengetahuan pertunjukan. Cerita dapat berubah mengikuti konteks zaman, sementara bentuk seni dan hubungan dengan penontonnya terus dirawat.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="ukiran jepara kayu jawa tengah perajin kriya">
+              <div class="image" role="img" aria-label="Perajin mengukir kayu di Jepara" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4b/COLLECTIE_TROPENMUSEUM_Een_groep_houtsnijders_uit_Japara_aan_het_werk_TMnr_10017719.jpg');"></div>
+              <div class="content">
+                <div class="tag">Ukiran Jepara · Jawa Tengah</div>
+                <h3>Ketelitian yang tumbuh dari kayu</h3>
+                <p>Keahlian mengukir membentuk identitas kriya Jepara dan menjadi mata pencaharian para perajinnya.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Ukiran Jepara" aria-label="Baca cerita Ukiran Jepara" aria-expanded="false" aria-controls="story-jepara">+</button>
+              <div class="story-detail" id="story-jepara">
+                <span class="tag">Kriya kayu · Jepara</span>
+                <h3>Motif yang lahir dari keterampilan tangan</h3>
+                <p>Di Jepara, perajin mengolah kayu melalui tahapan memilih bahan, membentuk, memahat, dan menyelesaikan permukaan. Motif sulur dan flora kerap dijumpai pada karya ukir, dengan ragam gaya yang berkembang di antara para perajin.</p>
+                <p>Pengetahuan teknik terbentuk lewat latihan dan pengalaman. Pesanan mebel serta karya hias menghubungkan keterampilan lokal dengan ekonomi kreatif, sekaligus menuntut perhatian pada asal bahan dan penghargaan terhadap kerja perajin.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="rendang minangkabau sumatera barat kuliner makanan rempah">
+              <div class="image" role="img" aria-label="Rendang ayam dan lemang, hidangan Minangkabau" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Lemang_dengan_rendang_ayam.jpg/960px-Lemang_dengan_rendang_ayam.jpg');"></div>
+              <div class="content">
+                <div class="tag">Rendang · Minangkabau</div>
+                <h3>Rempah, waktu, dan perjamuan</h3>
+                <p>Rendang menyatukan teknik memasak, pengetahuan rasa, dan tradisi menjamu dalam budaya Minangkabau.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Rendang Minangkabau" aria-label="Baca cerita Rendang Minangkabau" aria-expanded="false" aria-controls="story-rendang">+</button>
+              <div class="story-detail" id="story-rendang">
+                <span class="tag">Kuliner · Sumatera Barat</span>
+                <h3>Masakan yang dirawat dengan kesabaran</h3>
+                <p>Rendang dikenal melalui proses memasak daging bersama santan dan bumbu dalam waktu lama. Panas dan pengadukan bertahap mengubah tekstur serta rasa; komposisi bumbu dan cara memasak dapat berbeda antar keluarga dan daerah.</p>
+                <p>Hidangan ini lekat dengan perjamuan dan momen penting masyarakat Minangkabau. Rumah makan dan usaha rumahan kini memperkenalkannya kepada banyak orang, sementara pengetahuan resep tetap hidup di dapur dan komunitas.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="jamu gendong jawa kunyit jahe herbal penjual">
+              <div class="image" role="img" aria-label="Penjual jamu di pasar tradisional" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Penjual_Jamu_di_Pasar_Tradisional.jpg/960px-Penjual_Jamu_di_Pasar_Tradisional.jpg');"></div>
+              <div class="content">
+                <div class="tag">Jamu Gendong · Jawa</div>
+                <h3>Racikan yang berjalan dari kampung ke kampung</h3>
+                <p>Tradisi jamu mempertemukan pengetahuan bahan, kebiasaan sehari-hari, dan usaha mandiri.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Jamu Gendong" aria-label="Baca cerita Jamu Gendong" aria-expanded="false" aria-controls="story-jamu">+</button>
+              <div class="story-detail" id="story-jamu">
+                <span class="tag">Pengetahuan herbal · Jawa</span>
+                <h3>Meracik bahan, merawat kebiasaan</h3>
+                <p>Jamu gendong dikenal melalui penjual yang membawa aneka minuman racikan untuk dijajakan. Bahan yang digunakan beragam, termasuk rimpang dan rempah; resep serta cita rasa dapat berbeda menurut keluarga dan wilayah.</p>
+                <p>Pengetahuan memilih dan mengolah bahan diwariskan lewat praktik sehari-hari. Tradisi ini juga menjadi sumber penghidupan bagi penjual dan peracik, serta menghubungkan pelanggan dengan pengetahuan lokal tentang jamu.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="kerajinan perak kotagede yogyakarta logam kriya">
+              <div class="image" role="img" aria-label="Kerajinan perak dari Kotagede" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Kerajinan_perak_1.jpg/960px-Kerajinan_perak_1.jpg');"></div>
+              <div class="content">
+                <div class="tag">Kerajinan Perak · Kotagede</div>
+                <h3>Detail halus dari tangan perajin</h3>
+                <p>Teknik membentuk dan menghias logam menjadikan perak Kotagede bagian dari kehidupan kriya Yogyakarta.</p>
+                <div class="link-row"><span>3 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Kerajinan Perak Kotagede" aria-label="Baca cerita kerajinan perak Kotagede" aria-expanded="false" aria-controls="story-perak">+</button>
+              <div class="story-detail" id="story-perak">
+                <span class="tag">Kriya logam · Yogyakarta</span>
+                <h3>Mengolah perak dengan teliti</h3>
+                <p>Kotagede dikenal sebagai salah satu sentra kerajinan perak di Yogyakarta. Perajin membentuk lembaran atau kawat logam, menyambung bagian-bagian kecil, lalu mengukir atau memberi tekstur untuk menghasilkan benda pakai dan hias.</p>
+                <p>Keterampilan ini membutuhkan ketekunan dan berkembang melalui bengkel serta usaha keluarga. Kunjungan dan pembelian yang menghargai proses dapat membantu menjaga kesinambungan kerja para perajin lokal.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="gerabah kasongan yogyakarta tanah liat tembikar">
+              <div class="image" role="img" aria-label="Gerabah yang dibuat di Kasongan" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Gerabah_dari_Kasongan.jpg/960px-Gerabah_dari_Kasongan.jpg');"></div>
+              <div class="content">
+                <div class="tag">Gerabah · Kasongan</div>
+                <h3>Tanah liat menjadi bagian keseharian</h3>
+                <p>Dari benda pakai hingga karya hias, gerabah Kasongan menunjukkan kemungkinan kreatif dari bahan setempat.</p>
+                <div class="link-row"><span>3 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Gerabah Kasongan" aria-label="Baca cerita Gerabah Kasongan" aria-expanded="false" aria-controls="story-gerabah">+</button>
+              <div class="story-detail" id="story-gerabah">
+                <span class="tag">Keramik · Yogyakarta</span>
+                <h3>Membentuk, mengeringkan, membakar</h3>
+                <p>Kasongan di Yogyakarta dikenal dengan tradisi gerabahnya. Tanah liat dibentuk menjadi beragam benda, dikeringkan, lalu dibakar agar menjadi kuat. Teknik, bentuk, dan fungsi berkembang mengikuti kebutuhan serta kreativitas pembuatnya.</p>
+                <p>Keahlian mengolah tanah menjadi kegiatan bersama dan sumber penghidupan di sentra perajin. Kini, produk gerabah juga hadir sebagai karya dekoratif, dengan nilai yang tumbuh dari desain sekaligus keterampilan pembuatnya.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="tenun ikat sumba nusa tenggara timur kain">
+              <div class="image" role="img" aria-label="Kain tenun ikat Sumba" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Tenun_Ikat_Sumba.jpg/960px-Tenun_Ikat_Sumba.jpg');"></div>
+              <div class="content">
+                <div class="tag">Tenun Ikat · Sumba</div>
+                <h3>Motif yang disiapkan sebelum ditenun</h3>
+                <p>Teknik ikat dan pengetahuan menenun membentuk kain yang bermakna dalam kehidupan masyarakat Sumba.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Tenun Ikat Sumba" aria-label="Baca cerita Tenun Ikat Sumba" aria-expanded="false" aria-controls="story-sumba">+</button>
+              <div class="story-detail" id="story-sumba">
+                <span class="tag">Tekstil · Nusa Tenggara Timur</span>
+                <h3>Motif terbentuk sejak benang</h3>
+                <p>Pada teknik ikat, bagian benang diikat sebelum proses pencelupan agar warna tidak meresap pada area tertentu. Setelah ikatan dibuka, benang disusun dan ditenun hingga pola muncul pada kain. Tahap ini memerlukan perencanaan dan ketelitian.</p>
+                <p>Di Sumba, kain tenun hadir dalam berbagai konteks sosial dan adat. Motif serta penggunaannya memiliki makna setempat yang beragam, sehingga cerita tiap kain paling tepat disampaikan bersama penenun dan komunitas asalnya.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="rumah gadang minangkabau sumatera barat rumah adat arsitektur">
+              <div class="image" role="img" aria-label="Rumah Gadang Minangkabau" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Rumah_Gadang.jpg/960px-Rumah_Gadang.jpg');"></div>
+              <div class="content">
+                <div class="tag">Rumah Gadang · Minangkabau</div>
+                <h3>Rumah sebagai ruang hidup bersama</h3>
+                <p>Arsitektur Rumah Gadang berkaitan dengan adat, keluarga, dan kehidupan komunal masyarakat Minangkabau.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Rumah Gadang" aria-label="Baca cerita Rumah Gadang" aria-expanded="false" aria-controls="story-rumah-gadang">+</button>
+              <div class="story-detail" id="story-rumah-gadang">
+                <span class="tag">Arsitektur adat · Sumatera Barat</span>
+                <h3>Gonjong yang dikenali dari kejauhan</h3>
+                <p>Rumah Gadang dikenal dengan bentuk atap bergonjong dan ruang yang dirancang untuk kehidupan keluarga besar. Rumah ini tidak hanya menjadi tempat tinggal, tetapi juga ruang untuk pertemuan dan kegiatan adat.</p>
+                <p>Makna serta tata ruang dapat berbeda menurut nagari dan keluarga. Merawat Rumah Gadang berarti menjaga bangunan sekaligus pengetahuan, hubungan kekerabatan, dan adat yang terus dijalankan penghuninya.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="tari saman gayo aceh tari musik syair">
+              <div class="image" role="img" aria-label="Penari Saman dari Aceh" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Saman_Dance%2C_Aceh_Indonesia.jpg/960px-Saman_Dance%2C_Aceh_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="tag">Tari Saman · Gayo, Aceh</div>
+                <h3>Irama yang dibangun bersama</h3>
+                <p>Gerak, tepukan, dan syair dalam Saman menuntut kekompakan para penarinya.</p>
+                <div class="link-row"><span>3 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Tari Saman" aria-label="Baca cerita Tari Saman" aria-expanded="false" aria-controls="story-saman">+</button>
+              <div class="story-detail" id="story-saman">
+                <span class="tag">Seni pertunjukan · Gayo</span>
+                <h3>Gerak serempak, suara yang menyatukan</h3>
+                <p>Tari Saman berkembang dalam masyarakat Gayo di Aceh. Penari duduk berderet dan menyelaraskan gerak tubuh, tepukan, serta nyanyian. Perubahan tempo yang cepat membuat koordinasi kelompok menjadi bagian penting dari pertunjukan.</p>
+                <p>Syair dan gerak menyampaikan pesan serta membangun kebersamaan. Tradisi ini dipelajari melalui latihan bersama dan diwariskan dengan peran penting para pelaku serta komunitas Gayo.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="ukiran asmat papua selatan pahatan kayu seni">
+              <div class="image" role="img" aria-label="Pemahat Asmat sedang mengukir kayu" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Pemahat_Patung_Asmat.jpg/960px-Pemahat_Patung_Asmat.jpg');"></div>
+              <div class="content">
+                <div class="tag">Ukiran Asmat · Papua Selatan</div>
+                <h3>Kayu, keterampilan, dan pengetahuan leluhur</h3>
+                <p>Seni pahat Asmat tumbuh dalam konteks budaya dan kehidupan komunitas, bukan sekadar hiasan.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Ukiran Asmat" aria-label="Baca cerita Ukiran Asmat" aria-expanded="false" aria-controls="story-asmat">+</button>
+              <div class="story-detail" id="story-asmat">
+                <span class="tag">Seni pahat · Asmat</span>
+                <h3>Makna yang melekat pada karya</h3>
+                <p>Para pemahat Asmat mengolah kayu menjadi figur dan bentuk ukiran dengan teknik yang dipelajari dalam komunitas. Karya tertentu berkaitan dengan hubungan sosial dan pandangan hidup masyarakat, sehingga konteks pembuatannya penting untuk dipahami.</p>
+                <p>Apresiasi terhadap ukiran Asmat perlu disertai penghormatan pada pembuat, asal-usul, dan makna yang mereka berikan. Peluang ekonomi sebaiknya berjalan melalui kemitraan yang adil dan penjelasan budaya yang tidak menghapus suara komunitas.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal" data-search="tari bali bali penari gamelan ritual seni">
+              <div class="image" role="img" aria-label="Umat Hindu Bali mengenakan busana untuk tari tradisional" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Balinese_Hindus_dressed_for_traditional_dance_Indonesia.jpg/960px-Balinese_Hindus_dressed_for_traditional_dance_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="tag">Tari Bali · Bali</div>
+                <h3>Gerak yang dekat dengan upacara dan masyarakat</h3>
+                <p>Ragam tari Bali hidup dalam konteks yang beragam, dari lingkungan ritual hingga panggung pertunjukan.</p>
+                <div class="link-row"><span>4 menit baca</span><span class="arrow-link">→</span></div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Tari Bali" aria-label="Baca cerita Tari Bali" aria-expanded="false" aria-controls="story-tari-bali">+</button>
+              <div class="story-detail" id="story-tari-bali">
+                <span class="tag">Seni pertunjukan · Bali</span>
+                <h3>Gerak, musik, dan konteksnya</h3>
+                <p>Tari Bali mencakup berbagai bentuk dengan fungsi dan konteks yang berbeda. Gerak tangan, mata, tubuh, busana, serta iringan musik dipelajari melalui latihan dan diwariskan oleh guru, sanggar, keluarga, maupun komunitas.</p>
+                <p>Sebagian tari berkaitan dengan upacara, sementara bentuk lain ditampilkan untuk penonton. Memahami perbedaan konteks membantu wisatawan dan penikmat seni menghargai tradisi tanpa menganggap semua tari memiliki fungsi yang sama.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal">
+              <div class="image" role="img" aria-label="Perajin batik Cirebon menggunakan canting" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="tag">Batik Cirebon · Jawa Barat</div>
+                <h3>Batik Cirebon di era digital</h3>
+                <p>Dari canting hingga ruang digital, batik menemukan cara baru untuk bercerita.</p>
+                <div class="link-row">
+                  <span>5 menit baca</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Batik Cirebon" aria-label="Baca cerita Batik Cirebon" aria-expanded="false" aria-controls="story-batik">+</button>
+              <div class="story-detail" id="story-batik">
+                <span class="tag">Batik · Cirebon</span>
+                <h3>Motif yang bergerak bersama zaman</h3>
+                <p>Di Trusmi, pembatik menggambar pola dengan canting dan malam sebelum kain melalui proses pewarnaan. Keahlian ini tumbuh dari lingkungan budaya Cirebon yang beragam dan diteruskan melalui keluarga serta sanggar.</p>
+                <p>Dokumentasi digital dapat memperkenalkan proses dan pembatik kepada audiens baru—selama cerita, asal, dan peran para perajin tetap disebut dengan hormat.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal">
+              <div class="image" role="img" aria-label="Perempuan Papua sedang membuat noken" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Membuat_noken.jpg/960px-Membuat_noken.jpg');"></div>
+              <div class="content">
+                <div class="tag">Noken · Papua</div>
+                <h3>Noken: pengetahuan yang terus diwariskan</h3>
+                <p>Tradisi noken terus hidup melalui pengetahuan dan kreativitas generasi muda Papua.</p>
+                <div class="link-row">
+                  <span>4 menit baca</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Noken Papua" aria-label="Baca cerita Noken Papua" aria-expanded="false" aria-controls="story-noken">+</button>
+              <div class="story-detail" id="story-noken">
+                <span class="tag">Noken · Papua</span>
+                <h3>Kantong, keterampilan, dan kebersamaan</h3>
+                <p>Noken dibuat dengan teknik merajut atau menganyam serat alam yang dipelajari melalui praktik. Bentuk dan penggunaannya beragam di berbagai komunitas Papua, untuk membawa hasil kebun maupun kebutuhan sehari-hari.</p>
+                <p>Pengakuan UNESCO pada 2012 menyoroti pentingnya menjaga pengetahuan pembuatnya. Generasi muda turut merawat tradisi itu dengan mengajarkannya dan memperkenalkan karya noken secara bertanggung jawab.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal">
+              <div class="image" role="img" aria-label="Kopi Arabika Gayo dari Aceh" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Kopi_Hitam_King_Gayo_Arabika.jpg/960px-Kopi_Hitam_King_Gayo_Arabika.jpg');"></div>
+              <div class="content">
+                <div class="tag">Kopi Gayo · Aceh</div>
+                <h3>Kopi Gayo: dari kebun ke cangkir</h3>
+                <p>Pengetahuan kebun di dataran tinggi Gayo menghubungkan kopi, komunitas, dan penghidupan.</p>
+                <div class="link-row">
+                  <span>5 menit baca</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="story-toggle" type="button" data-story-name="Kopi Gayo" aria-label="Baca cerita Kopi Gayo" aria-expanded="false" aria-controls="story-gayo">+</button>
+              <div class="story-detail" id="story-gayo">
+                <span class="tag">Kopi · Dataran Tinggi Gayo</span>
+                <h3>Dari kebun ke cangkir, bersama komunitas</h3>
+                <p>Di dataran tinggi Gayo, budidaya kopi Arabika bertumpu pada pengetahuan petani tentang tanah, ketinggian, dan musim. Panen dan pengolahan membentuk rangkaian kerja yang menghubungkan kebun dengan koperasi, pengolah, dan kedai.</p>
+                <p>Nilai ekonomi kreatif akan lebih bermakna ketika asal kopi dikenali dan manfaatnya kembali secara adil kepada petani serta komunitas setempat.</p>
+              </div>
+            </article>
+          </div>
+          <p class="story-empty" id="story-empty" role="status" aria-live="polite" hidden>Tidak ada cerita yang cocok. Coba kata kunci budaya atau daerah lain.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <small>© 2026 NUSANTARA</small>
+        <div class="footer-links">
+          <a href="explore.html">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="makers.html">Makers</a>
+          <a href="stories.html">Stories</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

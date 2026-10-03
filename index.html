@@ -1,426 +1,476 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesignSphere — Lomba Web Design Nasional 2026</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        apple: {
-                            bg: '#000000',
-                            card: 'rgba(26, 26, 29, 0.75)',
-                            border: 'rgba(255, 255, 255, 0.12)',
-                            text: '#f5f5f7',
-                            muted: '#86868b',
-                            accent: '#0A84FF',
-                            gold: '#FFD700',
-                        }
-                    },
-                    boxShadow: {
-                        'apple-glow': '0 20px 50px -10px rgba(10, 132, 255, 0.25)',
-                        'apple-gold': '0 20px 50px -10px rgba(255, 215, 0, 0.2)',
-                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #f5f5f7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nusantara — Stories Behind the Craft" />
+    <title>NUSANTARA | Stories Behind the Craft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a href="index.html" class="brand">NUSANTARA</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="explore.html">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="makers.html">Makers</a>
+          <a href="stories.html">Stories</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2c2c2e;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3a3a3c;
-        }
-        
-        /* Glass Navbar with Backdrop Blur */
-        .glass-nav {
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* Ultra Smooth Glass Card */
-        .glass-card {
-            background: rgba(22, 22, 25, 0.55);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card:hover {
-            background: rgba(30, 30, 35, 0.8);
-            border-color: rgba(10, 132, 255, 0.4);
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 25px 50px -12px rgba(10, 132, 255, 0.2);
-        }
-
-        /* Interactive Spotlight Glow following mouse */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(10, 132, 255, 0.12), transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Premium Text Gradients */
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 30%, #86868b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-blue {
-            background: linear-gradient(135deg, #0A84FF 0%, #0056b3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Ambient Glowing Orbs */
-        @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.2; }
-            50% { transform: translate(40px, -50px) scale(1.2); opacity: 0.35; }
-        }
-        @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.15; }
-            50% { transform: translate(-50px, 40px) scale(1.15); opacity: 0.3; }
-        }
-
-        .animate-orb-1 {
-            animation: floatOrb1 9s ease-in-out infinite;
-        }
-        .animate-orb-2 {
-            animation: floatOrb2 11s ease-in-out infinite;
-        }
-
-        /* Scroll Reveal Animation Classes */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-        .reveal-on-scroll.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Smooth Success State Animations */
-        @keyframes successScale {
-            0% { transform: scale(0.85); opacity: 0; }
-            70% { transform: scale(1.02); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .animate-success-box {
-            animation: successScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        @keyframes checkmarkPulse {
-            0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-            60% { transform: scale(1.2) rotate(0deg); opacity: 1; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        .animate-checkmark {
-            animation: checkmarkPulse 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.15s forwards;
-        }
-
-        /* Magnetic Button Base */
-        .magnetic-btn {
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-    </style>
-</head>
-<body class="bg-apple-bg text-apple-text antialiased selection:bg-apple-accent selection:text-white">
-
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-semibold text-white tracking-tight text-lg hover:text-apple-accent transition-colors flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-apple-accent animate-pulse"></span>
-                DesignSphere
-            </a>
-            <div class="flex items-center space-x-6 text-sm text-apple-muted">
-                <a href="#about" class="hover:text-white transition-colors duration-300">Tentang</a>
-                <a href="#hadiah" class="hover:text-white transition-colors duration-300">Hadiah</a>
-                <a href="#daftar" class="bg-white text-black px-4 py-1.5 rounded-full font-medium hover:bg-apple-accent hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm">Daftar</a>
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-layout">
+            <div class="hero-copy reveal">
+              <div class="eyebrow">NUSANTARA • Stories behind the craft</div>
+              <h1>
+                Every Craft
+                <span class="line-break">Carries</span>
+                <span class="line-break">A Story.</span>
+              </h1>
+              <p>Discover the people, places, and traditions behind Indonesia’s local creations.</p>
+              <div class="hero-actions">
+                <a href="explore.html" class="btn btn-primary">Explore the craft</a>
+                <a href="makers.html" class="btn btn-secondary">Meet the makers</a>
+              </div>
             </div>
+
+            <aside class="hero-panel reveal" aria-label="Craft journey overview">
+              <span class="label">Story journey</span>
+              <h3>Discover<br />&nbsp;Region<br />&nbsp;Craft</h3>
+              <p>From the place where it is made to the hands that shape it, every object carries memory.</p>
+              <div class="hero-metrics">
+                <div>
+                  <strong>6</strong>
+                  <span>regions</span>
+                </div>
+                <div>
+                  <strong>15</strong>
+                  <span>crafts</span>
+                </div>
+                <div>
+                  <strong>4</strong>
+                  <span>stories</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-24 pb-16 px-6 text-center relative overflow-hidden">
-        <!-- Ambient Background Glowing Orbs -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-apple-accent/20 rounded-full blur-[140px] pointer-events-none animate-orb-1"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none animate-orb-2"></div>
-
-        <div class="max-w-3xl mx-auto relative z-10 reveal-on-scroll">
-            <span class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-apple-muted mb-8 tracking-wide hover:border-apple-accent/50 hover:bg-white/10 transition-all duration-300 cursor-default shadow-inner">
-                <span class="w-1.5 h-1.5 rounded-full bg-apple-accent"></span> Lomba Web Design Nasional 2026
-            </span>
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-                Desain Web Minimalis. <br><span class="text-gradient">Karya Tanpa Batas.</span>
-            </h1>
-            <p class="text-apple-muted text-base sm:text-lg mb-10 max-w-xl mx-auto font-normal leading-relaxed">
-                Tunjukkan kreativitas web design terbaikmu dengan standar estetika tinggi ala perangkat Apple. Bersih, mulus, dan sangat interaktif.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#daftar" class="magnetic-btn w-full sm:w-auto px-8 py-4 rounded-full bg-apple-accent text-white font-medium hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all duration-300 shadow-apple-glow text-sm flex items-center justify-center gap-2">
-                    <span>Daftar Sekarang</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-                <a href="#about" class="magnetic-btn w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95 text-sm">
-                    Pelajari Dulu
-                </a>
+      <section class="story-intro">
+        <div class="container story-grid">
+          <div class="story-visual reveal"></div>
+          <div class="story-copy reveal">
+            <div class="eyebrow">Where stories begin</div>
+            <h2 class="big-quote">Behind every local product is a person, a place, a tradition, and a story.</h2>
+            <div class="story-meta">
+              <span>Indonesia</span>
+              <span>Craft heritage</span>
+              <span>Creative economy</span>
             </div>
+            <p>From the first sketch to the final touch, each craft carries a living memory. We trace the journey from region to maker to object, revealing the deep human labor behind what is often seen as a simple product.</p>
+            <a href="explore.html" class="btn btn-primary">Discover Indonesia</a>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 px-6 border-t border-white/10 relative">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center max-w-xl mx-auto mb-20 reveal-on-scroll">
-                <h2 class="text-xs uppercase tracking-widest text-apple-accent font-semibold mb-3">Kenapa Ikut?</h2>
-                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Fokus pada Kualitas & Estetika</h3>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Regional roots</div>
+            <h2>Where stories begin.</h2>
+          </div>
+
+          <div class="region-panel reveal">
+            <div class="region-map">
+              <button class="region-btn is-active" data-region="java"><span class="tiny-label">Island</span><strong>Java</strong></button>
+              <button class="region-btn" data-region="sumatera"><span class="tiny-label">Island</span><strong>Sumatera</strong></button>
+              <button class="region-btn" data-region="kalimantan"><span class="tiny-label">Island</span><strong>Kalimantan</strong></button>
+              <button class="region-btn" data-region="sulawesi"><span class="tiny-label">Island</span><strong>Sulawesi</strong></button>
+              <button class="region-btn" data-region="bali"><span class="tiny-label">Island</span><strong>Bali</strong></button>
+              <button class="region-btn" data-region="papua"><span class="tiny-label">Island</span><strong>Papua</strong></button>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="glass-card rounded-3xl p-8 group cursor-pointer reveal-on-scroll" style="transition-delay: 0ms;">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-apple-accent mb-6 group-hover:scale-110 group-hover:bg-apple-accent group-hover:text-white transition-all duration-500 shadow-sm">
-                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-3 text-white group-hover:text-apple-accent transition-colors duration-300">Clean UI/UX</h4>
-                    <p class="text-apple-muted text-sm leading-relaxed">Desain bersih bernuansa minimalis yang mengutamakan kenyamanan pandangan dan navigasi pengguna.</p>
+
+            <div class="region-feature">
+              <div class="visual" data-region-image style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div>
+                <div class="eyebrow">Featured region</div>
+                <h3 data-region-title>Java</h3>
+              </div>
+              <p data-region-summary>From Pekalongan to Yogyakarta, Java carries a living archive of textile, wood, and ceremonial craft traditions.</p>
+              <div class="feature-list">
+                <div>
+                  <span>Crafts</span>
+                  <ul data-region-crafts>
+                    <li>Batik</li>
+                    <li>Jepara Wood Carving</li>
+                    <li>Wayang</li>
+                  </ul>
                 </div>
-                <!-- Card 2 -->
-                <div class="glass-card rounded-3xl p-8 group cursor-pointer reveal-on-scroll" style="transition-delay: 150ms;">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-500 shadow-sm">
-                        <i class="fa-solid fa-bolt text-lg"></i>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-3 text-white group-hover:text-cyan-400 transition-colors duration-300">Smooth Hover</h4>
-                    <p class="text-apple-muted text-sm leading-relaxed">Interaksi elemen dan kartu yang hidup berkat transisi kurva bezier super halus dan responsif.</p>
+                <div>
+                  <span>Location</span>
+                  <p data-region-location>Pekalongan / Jepara / Yogyakarta</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="glass-card rounded-3xl p-8 group cursor-pointer reveal-on-scroll" style="transition-delay: 300ms;">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:bg-indigo-400 group-hover:text-white transition-all duration-500 shadow-sm">
-                        <i class="fa-solid fa-award text-lg"></i>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-3 text-white group-hover:text-indigo-400 transition-colors duration-300">Total Hadiah</h4>
-                    <p class="text-apple-muted text-sm leading-relaxed">Menangkan total hadiah puluhan juta rupiah serta sertifikat apresiasi eksklusif tingkat nasional.</p>
+                <div>
+                  <span>Featured maker</span>
+                  <p data-region-artisan>Siti Rahma</p>
                 </div>
+                <div>
+                  <span>Story</span>
+                  <p data-region-story>Batik patterns continue to move between heritage and everyday life.</p>
+                </div>
+              </div>
+              <a href="explore.html" class="btn btn-primary">Explore Java's crafts</a>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Prizes Section -->
-    <section id="hadiah" class="py-32 px-6 border-t border-white/10 bg-black/50 relative">
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="reveal-on-scroll mb-20">
-                <h2 class="text-xs uppercase tracking-widest text-apple-accent font-semibold mb-3">Apresiasi</h2>
-                <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Hadiah Pemenang</h3>
-            </div>
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Crafts with roots</div>
+            <h2>Objects shaped by tradition, patience, and human hands.</h2>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                <!-- 2nd Place -->
-                <div class="glass-card rounded-3xl p-8 group reveal-on-scroll" style="transition-delay: 0ms;">
-                    <div class="text-4xl mb-4 group-hover:scale-125 transition-transform duration-500">🥈</div>
-                    <h4 class="font-semibold text-white mb-1 text-lg">Juara Kedua</h4>
-                    <div class="text-2xl font-bold text-apple-accent mt-2">Rp 15 Juta</div>
-                    <p class="text-xs text-apple-muted mt-3">Sertifikat & Trophy Eksklusif</p>
+          <div class="grid-crafts">
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="tag">Textile</div>
+                <h3>Batik</h3>
+                <p>Pekalongan, Java</p>
+                <div class="link-row">
+                  <span>Patterns carried through generations</span>
+                  <span class="arrow-link">→</span>
                 </div>
-                <!-- 1st Place (Featured & Elevated) -->
-                <div class="glass-card rounded-3xl p-10 border-apple-accent/50 bg-white/[0.04] md:-translate-y-6 shadow-apple-glow group reveal-on-scroll relative" style="transition-delay: 150ms;">
-                    <div class="absolute top-0 right-0 bg-gradient-to-r from-apple-accent to-blue-600 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl tracking-wider shadow-sm">UTAMA</div>
-                    <div class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-500">🥇</div>
-                    <h4 class="font-semibold text-white mb-1 text-xl">Juara Utama</h4>
-                    <div class="text-3xl font-bold text-gradient-gold mt-2">Rp 25 Juta</div>
-                    <p class="text-xs text-apple-muted mt-3">Sertifikat, Trophy & Exclusive Merch</p>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-batik" aria-label="Lihat penjelasan tentang batik"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-batik">
+                <span class="tag">Pekalongan · Jawa</span>
+                <h3>Batik</h3>
+                <p>Canting dan malam membentuk motif yang menjadi penanda identitas, tradisi, dan cerita setempat.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg" target="_blank" rel="noopener noreferrer">Foto: Ahaetulla · CC BY-SA 4.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tenunan_songket_khas_Minangkabau.jpg/960px-Tenunan_songket_khas_Minangkabau.jpg');"></div>
+              <div class="content">
+                <div class="tag">Textile</div>
+                <h3>Songket</h3>
+                <p>Minangkabau, Sumatera Barat</p>
+                <div class="link-row">
+                  <span>Woven with memory and rhythm</span>
+                  <span class="arrow-link">→</span>
                 </div>
-                <!-- 3rd Place -->
-                <div class="glass-card rounded-3xl p-8 group reveal-on-scroll" style="transition-delay: 300ms;">
-                    <div class="text-4xl mb-4 group-hover:scale-125 transition-transform duration-500">🥉</div>
-                    <h4 class="font-semibold text-white mb-1 text-lg">Juara Ketiga</h4>
-                    <div class="text-2xl font-bold text-apple-accent mt-2">Rp 10 Juta</div>
-                    <p class="text-xs text-apple-muted mt-3">Sertifikat & Trophy Eksklusif</p>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-songket" aria-label="Lihat penjelasan tentang songket"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-songket">
+                <span class="tag">Sumatera Barat</span>
+                <h3>Songket</h3>
+                <p>Tenunan Minangkabau ini menggunakan sisipan benang emas atau perak dan lekat dengan upacara adat.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Tenunan_songket_khas_Minangkabau.jpg" target="_blank" rel="noopener noreferrer">Foto: Benchmarknews &amp; Kementerian Perdagangan · Public domain</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4b/COLLECTIE_TROPENMUSEUM_Een_groep_houtsnijders_uit_Japara_aan_het_werk_TMnr_10017719.jpg');"></div>
+              <div class="content">
+                <div class="tag">Wood</div>
+                <h3>Ukiran Kayu</h3>
+                <p>Jepara, Java</p>
+                <div class="link-row">
+                  <span>Every cut tells a cultural story</span>
+                  <span class="arrow-link">→</span>
                 </div>
-            </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-jepara" aria-label="Lihat penjelasan tentang ukiran Jepara"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-jepara">
+                <span class="tag">Jepara · Jawa Tengah</span>
+                <h3>Ukiran Jepara</h3>
+                <p>Detail sulur, bunga, dan dedaunan dipahat dengan tangan dan diwariskan melalui komunitas perajin.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Een_groep_houtsnijders_uit_Japara_aan_het_werk_TMnr_10017719.jpg" target="_blank" rel="noopener noreferrer">Sumber: Tropenmuseum · CC BY-SA 3.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Bercerita_dengan_Wayang.jpg/960px-Bercerita_dengan_Wayang.jpg');"></div>
+              <div class="content">
+                <div class="tag">Seni pertunjukan</div>
+                <h3>Wayang Kulit</h3>
+                <p>Jawa</p>
+                <div class="link-row">
+                  <span>Threads of status, ritual, and pride</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-wayang" aria-label="Lihat penjelasan tentang wayang kulit"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-wayang">
+                <span class="tag">Jawa · Seni pertunjukan</span>
+                <h3>Wayang Kulit</h3>
+                <p>Dalang menghidupkan tokoh kulit di balik kelir, diiringi gamelan dan kisah yang sarat nilai kehidupan.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Bercerita_dengan_Wayang.jpg" target="_blank" rel="noopener noreferrer">Foto: Candra Firmansyah · CC BY-SA 4.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Tenun_Ikat_Sumba.jpg/960px-Tenun_Ikat_Sumba.jpg');"></div>
+              <div class="content">
+                <div class="tag">Tenun ikat</div>
+                <h3>Ikat Sumba</h3>
+                <p>Sumba, Nusa Tenggara Timur</p>
+                <div class="link-row">
+                  <span>Motif yang lahir dari alam dan leluhur</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-ikat-sumba" aria-label="Lihat penjelasan tentang tenun ikat Sumba"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-ikat-sumba">
+                <span class="tag">Sumba · Nusa Tenggara Timur</span>
+                <h3>Tenun Ikat</h3>
+                <p>Benang diikat dan dicelup sebelum ditenun menjadi kain yang berperan penting dalam kehidupan adat Sumba.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Tenun_Ikat_Sumba.jpg" target="_blank" rel="noopener noreferrer">Foto: 06Ivonne · CC BY-SA 4.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Saman_Dance%2C_Aceh_Indonesia.jpg/960px-Saman_Dance%2C_Aceh_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="tag">Seni pertunjukan</div>
+                <h3>Tari Saman</h3>
+                <p>Gayo, Aceh</p>
+                <div class="link-row">
+                  <span>Gerak serempak, irama, dan kebersamaan</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-saman" aria-label="Lihat penjelasan tentang Tari Saman"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-saman">
+                <span class="tag">Gayo · Aceh</span>
+                <h3>Tari Saman</h3>
+                <p>Gerak dan tepukan penari yang serempak mengikuti syair menjadi lambang kekompakan masyarakat Gayo.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Saman_Dance,_Aceh_Indonesia.jpg" target="_blank" rel="noopener noreferrer">Foto: IrmaRosalina · CC BY-SA 4.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Kopi_Hitam_King_Gayo_Arabika.jpg/960px-Kopi_Hitam_King_Gayo_Arabika.jpg');"></div>
+              <div class="content">
+                <div class="tag">Kuliner · Komoditas lokal</div>
+                <h3>Kopi Gayo</h3>
+                <p>Dataran Tinggi Gayo, Aceh</p>
+                <div class="link-row">
+                  <span>Dari kebun komunitas ke kedai kopi</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-kopi-gayo" aria-label="Lihat penjelasan tentang kopi Gayo"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-kopi-gayo">
+                <span class="tag">Aceh · Ekonomi kreatif kuliner</span>
+                <h3>Kopi Gayo</h3>
+                <p>Petani, koperasi, pengolah, dan kedai menambah nilai kopi khas Gayo bersama komunitas asalnya.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Kopi_Hitam_King_Gayo_Arabika.jpg" target="_blank" rel="noopener noreferrer">Foto: Adilarmaya · CC BY-SA 4.0</a>
+              </div>
+            </article>
+
+            <article class="craft-card culture-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Penjual_Jamu_di_Pasar_Tradisional.jpg/960px-Penjual_Jamu_di_Pasar_Tradisional.jpg');"></div>
+              <div class="content">
+                <div class="tag">Kuliner · Jamu tradisional</div>
+                <h3>Jamu Gendong</h3>
+                <p>Tradisi Jawa</p>
+                <div class="link-row">
+                  <span>Racikan turun-temurun, usaha mandiri</span>
+                  <span class="arrow-link">→</span>
+                </div>
+              </div>
+              <button class="card-toggle" type="button" aria-expanded="false" aria-controls="home-jamu" aria-label="Lihat penjelasan tentang jamu gendong"><span aria-hidden="true">+</span></button>
+              <div class="culture-detail" id="home-jamu">
+                <span class="tag">Jawa · Pengetahuan herbal</span>
+                <h3>Jamu Gendong</h3>
+                <p>Tradisi meracik jamu membuka peluang usaha mandiri sekaligus menjaga pengetahuan bahan lokal.</p>
+                <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Penjual_Jamu_di_Pasar_Tradisional.jpg" target="_blank" rel="noopener noreferrer">Foto: Herusutimbul · CC BY-SA 4.0</a>
+              </div>
+            </article>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Registration Form Section -->
-    <section id="daftar" class="py-32 px-6 border-t border-white/10 relative">
-        <div class="max-w-md mx-auto glass-card rounded-[32px] p-8 sm:p-10 border border-white/15 relative overflow-hidden reveal-on-scroll shadow-2xl">
-            
-            <!-- Form Container -->
-            <div id="formContainer" class="transition-all duration-500">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-white mb-2">Daftar Lomba</h3>
-                    <p class="text-apple-muted text-sm">Amankan posisimu di kompetisi tahun ini.</p>
-                </div>
+      <section class="home-journey">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">A closer look</div>
+            <h2>Culture is more than an object.</h2>
+            <p>Discover the knowledge, people, and shared moments that keep each tradition alive.</p>
+          </div>
 
-                <form id="simple-form" class="space-y-5">
-                    <div>
-                        <label class="block text-xs font-medium text-apple-muted uppercase mb-2 tracking-wider">Nama Lengkap</label>
-                        <input type="text" id="nameInput" required placeholder="cth. Budi Santoso" class="w-full bg-black/70 border border-white/10 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-apple-accent focus:ring-2 focus:ring-apple-accent/30 transition-all duration-300">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-apple-muted uppercase mb-2 tracking-wider">Email Aktif</label>
-                        <input type="email" id="emailInput" required placeholder="cth. budi@email.com" class="w-full bg-black/70 border border-white/10 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-apple-accent focus:ring-2 focus:ring-apple-accent/30 transition-all duration-300">
-                    </div>
-                    <button type="submit" id="submitBtn" class="magnetic-btn w-full py-4 rounded-2xl bg-apple-accent text-white font-medium hover:bg-blue-600 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-apple-glow text-sm flex items-center justify-center space-x-2 mt-2">
-                        <span>Kirim Pendaftaran</span>
-                    </button>
-                </form>
-            </div>
+          <div class="home-journey-grid">
+            <article class="home-journey-card reveal">
+              <span class="journey-number">01</span>
+              <span class="journey-mark" aria-hidden="true">◇</span>
+              <div class="eyebrow">Knowledge</div>
+              <h3>Learn the making</h3>
+              <p>From drawing with canting to preparing ikat threads, every technique holds generations of practice and patient skill.</p>
+              <a href="crafts.html">Explore the crafts <span aria-hidden="true">→</span></a>
+            </article>
 
-            <!-- Ultra-Smooth Success Animation State -->
-            <div id="successState" class="hidden text-center py-8 animate-success-box">
-                <div class="w-20 h-20 bg-emerald-500/15 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto mb-6 text-emerald-400 text-3xl animate-checkmark shadow-lg shadow-emerald-500/20">
-                    <i class="fa-solid fa-check"></i>
-                </div>
-                <h4 class="text-2xl font-bold text-white mb-2">Pendaftaran Berhasil! 🎉</h4>
-                <p class="text-apple-muted text-sm mb-8 leading-relaxed px-4">Terima kasih telah mendaftar. Data kamu telah tersimpan aman, tiket peserta dikirim ke email.</p>
-                <button type="button" id="resetBtn" class="magnetic-btn px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-all duration-300 border border-white/15 hover:scale-105 active:scale-95 shadow-md">
-                    Daftar Peserta Lain
-                </button>
-            </div>
+            <article class="home-journey-card reveal">
+              <span class="journey-number">02</span>
+              <span class="journey-mark" aria-hidden="true">✳</span>
+              <div class="eyebrow">Community</div>
+              <h3>Meet the people</h3>
+              <p>Makers, performers, farmers, and families carry local knowledge forward and shape how traditions evolve today.</p>
+              <a href="makers.html">Meet the makers <span aria-hidden="true">→</span></a>
+            </article>
 
+            <article class="home-journey-card reveal">
+              <span class="journey-number">03</span>
+              <span class="journey-mark" aria-hidden="true">⌁</span>
+              <div class="eyebrow">Living stories</div>
+              <h3>Understand the meaning</h3>
+              <p>Explore how craft, food, performance, and place connect to identity, everyday life, and creative livelihoods.</p>
+              <a href="stories.html">Read cultural stories <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-white/10 text-center text-xs text-apple-muted bg-black">
-        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 DesignSphere. Dibuat dengan gaya minimalis ala Apple.</p>
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-white transition-colors">Privasi</a>
-                <a href="#" class="hover:text-white transition-colors">Ketentuan</a>
-                <a href="#" class="hover:text-white transition-colors">Bantuan</a>
+      <section>
+        <div class="container">
+          <div class="economy-note reveal">
+            <div class="economy-note-copy">
+              <span class="eyebrow">Dari tradisi ke ekonomi kreatif</span>
+              <h2>Nilai budaya tumbuh ketika manfaatnya kembali ke komunitas.</h2>
+              <p>Perajin, petani, juru masak, desainer, dan pelaku usaha lokal menjaga pengetahuan Nusantara sekaligus menciptakan penghidupan.</p>
             </div>
+            <div class="economy-pill-list" aria-label="Bidang ekonomi kreatif">
+              <span>Kriya</span><span>Fesyen</span><span>Kuliner</span><span>Desain lokal</span>
+              <a href="crafts.html">Jelajahi budaya &amp; karya <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">People behind the heritage</div>
+            <h2>The hands behind the heritage.</h2>
+          </div>
+
+          <div class="makers-grid">
+            <article class="maker-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Batik_Artisan_Drawing_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Drawing_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div class="content">
+                <div class="meta"><span>Siti Rahma</span><span>12 years</span></div>
+                <h3>Batik Artisan</h3>
+                <p>Pekalongan, Central Java</p>
+                <blockquote>“I learned this craft from my grandmother.”</blockquote>
+              </div>
+            </article>
+
+            <article class="maker-card reveal">
+              <div class="image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4b/COLLECTIE_TROPENMUSEUM_Een_groep_houtsnijders_uit_Japara_aan_het_werk_TMnr_10017719.jpg');"></div>
+              <div class="content">
+                <div class="meta"><span>Rangga Sutejo</span><span>18 years</span></div>
+                <h3>Wood Carver</h3>
+                <p>Jepara, Central Java</p>
+                <blockquote>“The grain of wood remembers every hand that touched it.”</blockquote>
+              </div>
+            </article>
+
+            <article class="maker-card reveal">
+              <div class="image" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Traditional_sasak_weaving.jpg/960px-Traditional_sasak_weaving.jpg');"></div>
+              <div class="content">
+                <div class="meta"><span>Wayan Leni</span><span>15 years</span></div>
+                <h3>Weaver</h3>
+                <p>Ubud, Bali</p>
+                <blockquote>“A loom is not only a tool; it is a teacher.”</blockquote>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-field-notes">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Field notes · living heritage</div>
+            <h2>Tradition is made in the everyday.</h2>
+            <p>Look beyond the finished object to the practices, places, and relationships that keep culture moving.</p>
+          </div>
+
+          <div class="home-stories-grid">
+            <article class="home-story-card reveal">
+              <div class="home-story-image" role="img" aria-label="Perajin batik Cirebon menorehkan malam dengan canting" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div class="home-story-content">
+                <span class="tag">Batik · Cirebon</span>
+                <h3>A pattern takes patience</h3>
+                <p>Wax, cloth, and color come together through a careful process shaped by each maker’s hand and local visual language.</p>
+                <a href="stories.html">Discover batik stories <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article class="home-story-card reveal">
+              <div class="home-story-image" role="img" aria-label="Perempuan Papua sedang merajut noken" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Membuat_noken.jpg/960px-Membuat_noken.jpg');"></div>
+              <div class="home-story-content">
+                <span class="tag">Noken · Papua</span>
+                <h3>Knowledge carried by hand</h3>
+                <p>Noken-making passes through practice and community life, connecting natural materials with everyday use and cultural knowledge.</p>
+                <a href="stories.html">Discover Noken stories <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+
+            <article class="home-story-card reveal">
+              <div class="home-story-image" role="img" aria-label="Kopi Arabika Gayo dari dataran tinggi Aceh" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Kopi_Hitam_King_Gayo_Arabika.jpg/960px-Kopi_Hitam_King_Gayo_Arabika.jpg');"></div>
+              <div class="home-story-content">
+                <span class="tag">Kopi Gayo · Aceh</span>
+                <h3>Place gives flavor its context</h3>
+                <p>Growing, processing, and sharing coffee links local knowledge with livelihoods across the highlands and beyond.</p>
+                <a href="stories.html">Discover Gayo stories <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="cta-panel reveal">
+            <div>
+              <div class="eyebrow" style="color: rgba(255,255,255,.68);">The story continues</div>
+              <h3>Explore the craft, the people, and the journey behind each piece.</h3>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <a href="crafts.html" class="btn btn-secondary" style="border-color: rgba(255,255,255,.3);">Explore now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <small>© 2026 NUSANTARA</small>
+        <div class="footer-links">
+          <a href="explore.html">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="stories.html">Stories</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
     </footer>
 
-    <!-- Interactive Script -->
-    <script>
-        // 1. Spotlight Mousemove Effect for Cards
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // 2. Scroll Reveal Observer with Smooth Threshold
-        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
-
-        // 3. Form Submission & Smooth State Transitions
-        const form = document.getElementById('simple-form');
-        const formContainer = document.getElementById('formContainer');
-        const successState = document.getElementById('successState');
-        const submitBtn = document.getElementById('submitBtn');
-        const resetBtn = document.getElementById('resetBtn');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Loading spinner animation state
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses Data...</span>';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                formContainer.style.opacity = '0';
-                formContainer.style.transform = 'translateY(-15px)';
-                formContainer.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-
-                setTimeout(() => {
-                    formContainer.classList.add('hidden');
-                    successState.classList.remove('hidden');
-                    form.reset();
-                    submitBtn.innerHTML = '<span>Kirim Pendaftaran</span>';
-                    submitBtn.disabled = false;
-                    formContainer.style.opacity = '1';
-                    formContainer.style.transform = 'translateY(0)';
-                }, 400);
-            }, 1200);
-        });
-
-        resetBtn.addEventListener('click', () => {
-            successState.style.opacity = '0';
-            successState.style.transform = 'translateY(15px)';
-            successState.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-
-            setTimeout(() => {
-                successState.classList.add('hidden');
-                formContainer.classList.remove('hidden');
-                successState.style.opacity = '1';
-                successState.style.transform = 'translateY(0)';
-            }, 400);
-        });
-    </script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

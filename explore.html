@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore | NUSANTARA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a href="index.html" class="brand">NUSANTARA</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="explore.html" class="active">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="makers.html">Makers</a>
+          <a href="stories.html">Stories</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <div class="reveal">
+            <div class="eyebrow">Explore Indonesia</div>
+            <h1>Explore<br />Indonesia.</h1>
+            <p>Every region carries a different story, shaped by climate, ritual, knowledge, and community memory.</p>
+          </div>
+          <div class="page-hero-visual reveal" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Balinese_Hindus_dressed_for_traditional_dance_Indonesia.jpg/960px-Balinese_Hindus_dressed_for_traditional_dance_Indonesia.jpg');"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="region-panel reveal">
+            <div class="region-map">
+              <button class="region-btn is-active" data-region="java"><span class="tiny-label">Region</span><strong>Java</strong></button>
+              <button class="region-btn" data-region="sumatera"><span class="tiny-label">Region</span><strong>Sumatera</strong></button>
+              <button class="region-btn" data-region="kalimantan"><span class="tiny-label">Region</span><strong>Kalimantan</strong></button>
+              <button class="region-btn" data-region="sulawesi"><span class="tiny-label">Region</span><strong>Sulawesi</strong></button>
+              <button class="region-btn" data-region="bali"><span class="tiny-label">Region</span><strong>Bali</strong></button>
+              <button class="region-btn" data-region="papua"><span class="tiny-label">Region</span><strong>Papua</strong></button>
+            </div>
+
+            <div class="region-feature">
+              <div class="visual" data-region-image style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/960px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg');"></div>
+              <div>
+                <div class="eyebrow">Featured region</div>
+                <h3 data-region-title>Java</h3>
+              </div>
+              <p data-region-summary>From Pekalongan to Yogyakarta, Java carries a living archive of textile, wood, and ceremonial craft traditions.</p>
+              <div class="feature-list">
+                <div>
+                  <span>Crafts</span>
+                  <ul data-region-crafts>
+                    <li>Batik</li>
+                    <li>Jepara Wood Carving</li>
+                    <li>Wayang</li>
+                  </ul>
+                </div>
+                <div>
+                  <span>Location</span>
+                  <p data-region-location>Pekalongan / Jepara / Yogyakarta</p>
+                </div>
+                <div>
+                  <span>Featured maker</span>
+                  <p data-region-artisan>Siti Rahma</p>
+                </div>
+                <div>
+                  <span>Story</span>
+                  <p data-region-story>Batik patterns continue to move between heritage and everyday life.</p>
+                </div>
+              </div>
+              <a href="crafts.html" class="btn btn-primary">Explore Java's crafts</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <small>© 2026 NUSANTARA</small>
+        <div class="footer-links">
+          <a href="explore.html">Explore</a>
+          <a href="crafts.html">Crafts</a>
+          <a href="makers.html">Makers</a>
+          <a href="stories.html">Stories</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
